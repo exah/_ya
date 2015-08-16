@@ -1,0 +1,146 @@
+$highlight: #d7e7f5;
+
+.board {
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: separate;
+	overflow: hidden;
+	
+	&_overflow {
+		border: 1px solid lightgrey;
+		border-radius: 4px;
+		overflow-x: auto;
+		overflow-y: visible;
+		-webkit-overflow-scrolling: touch;
+	}
+	
+	th, td {
+		padding: .5em 1em;
+		
+		text-align: left;
+		position: relative;
+		
+		&:hover::after,
+		&:hover::after {
+		  content: "";
+		  position: absolute;
+		  background-color: $highlight;
+		  left: 0;
+		  top: -5000px;
+		  height: 10000px;
+		  width: 100%;
+		  z-index: -1;
+		}
+	}
+	
+	&-head {
+		position: sticky;
+		top: 0px;
+		
+		&-item {
+			border-bottom: 1px solid lightgrey;
+			border-bottom: 1px solid rgba(black, 0.15);
+			color: dimgrey;
+			font-weight: normal;
+
+			&:first-letter {
+				text-transform: capitalize;
+			}
+		}
+	}
+	
+	&-row {
+		&:nth-of-type(odd) {
+			background: whitesmoke;
+			background: rgba(black, .05);
+		}
+		
+		&:hover {
+			background: $highlight;
+		}
+		
+		& + & .board-col {
+			border-top: 1px solid rgba(black, .07);
+		}
+		
+		&--check {
+			.icon {
+				color: royalblue;
+			}
+		}
+		
+		&--warning {
+			.icon {
+				color: orange;
+			}
+		}
+		
+		&--ok {
+			.icon {
+				color: green;
+			}
+		}
+		
+		&--danger {
+			.icon {
+				color: darkred;
+			}
+		}
+	}
+}
+
+.schedule {
+	&-date {
+		@extend %hide-on-700;
+		
+		color: dimgrey;
+	}
+}
+
+.terminal {
+	text-align: center;
+}
+
+.aeroport {
+	&-name {
+		@extend %hide-on-700;
+		
+		color: dimgrey;
+	}
+}
+
+.avia {
+	white-space: nowrap;
+	
+	&-logo {
+		max-height: 22px;
+		vertical-align: middle;
+		margin-right: .25em;
+	}
+	
+	&-name {
+		@extend %hide-on-900;
+		
+		&:after {
+			content: "/";
+		}
+	}
+}
+
+.plane {
+	@extend %hide-on-800;
+	
+	&-name {
+		&--short {
+			display: none;
+			
+			@media (max-width: 900px) {
+				display: inline-block;
+			}
+		}
+		
+		&--full {
+			@extend %hide-on-900;
+		}
+	}
+}

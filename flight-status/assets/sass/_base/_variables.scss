@@ -1,0 +1,36 @@
+/*
+ * 	Настройки:
+ */
+
+// База
+$base-font-size: 13px;
+$base-width: 1028px;
+
+$gap: 28px;
+$col: 60px;
+
+// Подсчёт ширины колнки
+@function col($n) {
+  @return $n * $col + ($n - 1) * $gap;
+}
+
+// Цвета
+$color-main: #19B6FF; // Park-n-Go Blue
+$color-main-accent: #2FBDFF;
+$color-main-active: #13A8ED;
+
+$color-green: #00e94d;
+
+$color-grey-light: #efefef;
+$color-grey-medium: #EBEBEB;
+$color-grey-dark: #CACACA;
+$color-dark-light: #363636;
+$color-dark: #3e3e3e;
+
+$color-text: #222;
+$color-text-faded: #929292;
+$color-link: #222;
+$color-text-inverted: white;
+$color-text-inverted-faded: rgba(white, 0.6);
+
+@mixin fm-radius { border-radius: 999px; }

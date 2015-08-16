@@ -1,0 +1,47 @@
+.tabs {
+	padding: 20px 0;
+	text-align: center;
+	letter-spacing: -.3em;
+	
+	&-item {
+		position: relative;
+		display: inline-block;
+		letter-spacing: normal;
+		color: #666;
+		font-size: 15px;
+		border-bottom: 2px solid;
+		
+		a {
+			display: inline-block;
+			margin: 0 1em -2px;
+			border-bottom: 2px solid;
+		}
+		
+		&:first-child a {
+			margin-left: 0;
+		}
+		
+		&:last-child a {
+			margin-right: 0;
+		}
+	}
+}
+
+#board-departure:target ~ .board_overflow .board-row--arrival {
+	display: none;
+}
+
+#board-arrival:target ~ .board_overflow .board-row--departure {
+	display: none;
+}
+
+a[href="#board-all"],
+#board-departure:target ~ .tabs a[href="#board-departure"],
+#board-arrival:target ~ .tabs a[href="#board-arrival"] {
+	color: royalblue;
+}
+
+#board-departure:target ~ .tabs a[href="#board-all"],
+#board-arrival:target ~ .tabs a[href="#board-all"] {
+	color: inherit;
+}

@@ -1,0 +1,60 @@
+.modal {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	
+	z-index: 99;
+	
+	margin: 10%;
+	
+	display: none;
+	
+	&:target {
+		display: block;
+	}
+	
+	&-overlay {
+		content: "";
+		position: fixed;		
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		
+		z-index: -2;
+		background: rgba(black, .7);
+	}
+	
+	&-content {
+		padding: 2em;
+		background: white;
+		border-radius: 4px;
+	}
+	
+	&-heading {
+		margin-bottom: 2em;
+		text-align: center;
+	}
+	
+	&-table {
+		margin-bottom: 1.5em;
+		
+		.board-row {
+			&:hover {
+				background: inherit;
+			}
+			
+			&:nth-of-type(odd) {
+				background: whitesmoke;
+				background: rgba(black, .05);
+			}
+		}
+		
+	}
+	
+	&-article {
+		margin-top: 1em;
+	}
+}

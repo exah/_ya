@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Arrivals / Departures</title>
+
+	<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+	<div class="targets" id="board-arrival"></div>
+	<div class="targets" id="board-departure"></div>
+	<nav class="tabs">
+		<ul>
+			<li class="tabs-item"><a href="#board-all">Все</a></li>
+			<li class="tabs-item"><a href="#board-arrival">Прилёт</a></li>
+			<li class="tabs-item"><a href="#board-departure">Вылет</a></li>
+		</ul>
+	</nav>
+	<div class="board_overflow">
+		
+		<table class="board">
+			<thead class="board-head" id="stick">
+				<tr>
+					<th class="board-head-item icon"></th>
+					<th class="board-head-item status">Статус</th>
+					<th class="board-head-item schedule">
+						<span class="schedule-date">Плановое</span> 
+						<span class="schedule-time">время</span>
+					</th>
+					<th class="board-head-item terminal">Терм.</th>
+					<th class="board-head-item aeroport">Аэропорт</th>
+					<th class="board-head-item avia">
+						<span class="avia-name">Авиакомпания </span>
+						<span class="avia-code">Рейс </span>
+					</th>
+					<th class="board-head-item plane">Самолет</th>
+					<th class="board-head-item info">Примечания</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="board-row board-row--arrival board-row--ok">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#arrival"></use>
+						</svg>
+					</td>
+					<td class="board-col status">В&nbsp;полёте</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">00:05</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">D</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Лондон</p> 
+						<p class="aeroport-name">Хитроу</p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/va.jpg" />
+						<span class="avia-name">Virgin Atlantic </span>
+						<span class="avia-code">VS7104</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Прилетел в 00:14. Закончена выд. багажа на А11</p>
+						<p><a href="#VS7104"> Подробнее </a></p>
+					</td>
+				</tr><tr class="board-row board-row--arrival board-row--ok">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#arrival"></use>
+						</svg>
+					</td>
+					<td class="board-col status">В&nbsp;полёте</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">00:00</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">D</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Верона</p> 
+						<p class="aeroport-name">Виллафранка</p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/s7.png" />
+						<span class="avia-name">S7 </span>
+						<span class="avia-code">S7698</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Без задержек</p>
+						<p><a href="#S7698"> Подробнее </a></p>
+					</td>
+				</tr><tr class="board-row board-row--departure board-row--warning">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#departure"></use>
+						</svg>
+					</td>
+					<td class="board-col status">Вылетел</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">15:45</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">A</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Хургада </p> 
+						<p class="aeroport-name"></p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/ifly.jpg" />
+						<span class="avia-name">iFly </span>
+						<span class="avia-code">I49215</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Вылетел в 15:48</p>
+						<p><a href="#I49215"> Подробнее </a></p>
+					</td>
+				</tr><tr class="board-row board-row--departure board-row--danger">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#departure"></use>
+						</svg>
+					</td>
+					<td class="board-col status">Отменён</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">02:00</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">B</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Стамбул  </p> 
+						<p class="aeroport-name">Ататюрк</p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/ta.jpeg" />
+						<span class="avia-name">Turkish Airlines </span>
+						<span class="avia-code">TK419</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Рейс отменён</p>
+						<p><a href="#TK419"> Подробнее </a></p>
+					</td>
+				</tr><tr class="board-row board-row--departure board-row--ok">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#departure"></use>
+						</svg>
+					</td>
+					<td class="board-col status">Вылетел</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">00:10</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">A</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Екатеринбург </p> 
+						<p class="aeroport-name">Кольцово</p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/победа.jpg" />
+						<span class="avia-name">Победа </span>
+						<span class="avia-code">ДР272</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Вылетел в 00:13.</p>
+						<p><a href="#ДР272"> Подробнее </a></p>
+					</td>
+				</tr><tr class="board-row board-row--departure board-row--ok">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#departure"></use>
+						</svg>
+					</td>
+					<td class="board-col status">Вылетел</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">05:40</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">B</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Барселона</p> 
+						<p class="aeroport-name"></p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/transaero.png" />
+						<span class="avia-name">Transaero </span>
+						<span class="avia-code">UN340</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Нет информации</p>
+						<p><a href="#UN340"> Подробнее </a></p>
+					</td>
+				</tr><tr class="board-row board-row--departure board-row--ok">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#departure"></use>
+						</svg>
+					</td>
+					<td class="board-col status">Вылетел</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">10:05</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">B</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Будапешт </p> 
+						<p class="aeroport-name">Ферихедь</p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/transaero.png" />
+						<span class="avia-name">Transaero </span>
+						<span class="avia-code">W62490</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Совершил посадку 12:46</p>
+						<p><a href="#W62490"> Подробнее </a></p>
+					</td>
+				</tr><tr class="board-row board-row--arrival board-row--warning">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#arrival"></use>
+						</svg>
+					</td>
+					<td class="board-col status">Вылетел</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">01:40</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">A</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Хургада </p> 
+						<p class="aeroport-name"></p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/ut.jpg" />
+						<span class="avia-name">Utair </span>
+						<span class="avia-code">UT9018</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Задержался, прилетел в 03:52. Закончена выд. багажа на В01</p>
+						<p><a href="#UT9018"> Подробнее </a></p>
+					</td>
+				</tr><tr class="board-row board-row--arrival board-row--ok">
+					<td class="board-col icon">
+						<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+							<use xlink:href="assets/images/icons.svg#arrival"></use>
+						</svg>
+					</td>
+					<td class="board-col status">Приземлился</td>
+					<td class="board-col schedule">
+						<time>
+							<p class="schedule-time">05:00</p>
+							<p class="schedule-date">16.08.2015</p>
+						</time>
+					</td>
+					<td class="board-col terminal">B</td>
+					<td class="board-col aeroport">
+						<p class="aeroport-city">Тель-Авив</p> 
+						<p class="aeroport-name">Бен Гурион интерн.</p>
+					</td>
+					<td class="board-col avia">
+						<img class="avia-logo" src="avia-images/transaero.png" />
+						<span class="avia-name">Transaero </span>
+						<span class="avia-code">UN312</span>
+					</td>
+					<td class="board-col plane">
+						<span class="plane-name plane-name--full">Boeing 737-700 </span>
+						<span class="plane-name plane-name--short">B737 </span>
+					</td>
+					<td class="board-col info">
+						<p>Совершил посадку в 06:00</p>
+						<p><a href="#UN312"> Подробнее </a></p>
+					</td>
+				</tr>			</tbody>
+		</table>
+	</div>
+	
+
+	<div class="modal " id="VS7104" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--arrival board-row--ok">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#arrival"></use>
+								</svg>
+							</td>
+							<td class="board-col status">В&nbsp;полёте</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">00:05</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">D</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Лондон</p> 
+								<p class="aeroport-name">Хитроу</p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/va.jpg" />
+								<span class="avia-name">Virgin Atlantic </span>
+								<span class="avia-code">VS7104</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Прилетел в 00:14. Закончена выд. багажа на А11</p>
+			</article>
+		</div>
+	</div><div class="modal active" id="S7698" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--arrival board-row--ok">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#arrival"></use>
+								</svg>
+							</td>
+							<td class="board-col status">В&nbsp;полёте</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">00:00</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">D</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Верона</p> 
+								<p class="aeroport-name">Виллафранка</p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/s7.png" />
+								<span class="avia-name">S7 </span>
+								<span class="avia-code">S7698</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Без задержек</p>
+			</article>
+		</div>
+	</div><div class="modal " id="I49215" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--departure board-row--warning">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#departure"></use>
+								</svg>
+							</td>
+							<td class="board-col status">Вылетел</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">15:45</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">A</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Хургада </p> 
+								<p class="aeroport-name"></p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/ifly.jpg" />
+								<span class="avia-name">iFly </span>
+								<span class="avia-code">I49215</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Вылетел в 15:48</p>
+			</article>
+		</div>
+	</div><div class="modal " id="TK419" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--departure board-row--danger">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#departure"></use>
+								</svg>
+							</td>
+							<td class="board-col status">Отменён</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">02:00</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">B</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Стамбул  </p> 
+								<p class="aeroport-name">Ататюрк</p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/ta.jpeg" />
+								<span class="avia-name">Turkish Airlines </span>
+								<span class="avia-code">TK419</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Рейс отменён</p>
+			</article>
+		</div>
+	</div><div class="modal " id="ДР272" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--departure board-row--ok">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#departure"></use>
+								</svg>
+							</td>
+							<td class="board-col status">Вылетел</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">00:10</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">A</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Екатеринбург </p> 
+								<p class="aeroport-name">Кольцово</p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/победа.jpg" />
+								<span class="avia-name">Победа </span>
+								<span class="avia-code">ДР272</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Вылетел в 00:13.</p>
+			</article>
+		</div>
+	</div><div class="modal " id="UN340" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--departure board-row--ok">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#departure"></use>
+								</svg>
+							</td>
+							<td class="board-col status">Вылетел</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">05:40</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">B</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Барселона</p> 
+								<p class="aeroport-name"></p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/transaero.png" />
+								<span class="avia-name">Transaero </span>
+								<span class="avia-code">UN340</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Нет информации</p>
+			</article>
+		</div>
+	</div><div class="modal " id="W62490" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--departure board-row--ok">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#departure"></use>
+								</svg>
+							</td>
+							<td class="board-col status">Вылетел</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">10:05</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">B</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Будапешт </p> 
+								<p class="aeroport-name">Ферихедь</p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/transaero.png" />
+								<span class="avia-name">Transaero </span>
+								<span class="avia-code">W62490</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Совершил посадку 12:46</p>
+			</article>
+		</div>
+	</div><div class="modal " id="UT9018" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--arrival board-row--warning">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#arrival"></use>
+								</svg>
+							</td>
+							<td class="board-col status">Вылетел</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">01:40</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">A</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Хургада </p> 
+								<p class="aeroport-name"></p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/ut.jpg" />
+								<span class="avia-name">Utair </span>
+								<span class="avia-code">UT9018</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Задержался, прилетел в 03:52. Закончена выд. багажа на В01</p>
+			</article>
+		</div>
+	</div><div class="modal " id="UN312" >
+		<a class="modal-overlay" href="#"></a>
+		<div class="modal-content">
+			<h3 class="modal-heading"> Информация о рейсе </h3>
+			<div class="modal-table board_overflow">
+				<table class="board">
+					<thead class="board-head" id="stick">
+						<tr>
+							<th class="board-head-item icon"></th>
+							<th class="board-head-item status">Статус</th>
+							<th class="board-head-item schedule">
+								<span class="schedule-date">Плановое</span> 
+								<span class="schedule-time">время</span>
+							</th>
+							<th class="board-head-item terminal">Терм.</th>
+							<th class="board-head-item aeroport">Аэропорт</th>
+							<th class="board-head-item avia">
+								<span class="avia-name">Авиакомпания </span>
+								<span class="avia-code">Рейс </span>
+							</th>
+							<th class="board-head-item plane">Самолет</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="board-row board-row--arrival board-row--ok">
+							<td class="board-col icon">
+								<svg viewBox="0 0 28 28" class="icons" width="28" height="28">
+									<use xlink:href="assets/images/icons.svg#arrival"></use>
+								</svg>
+							</td>
+							<td class="board-col status">Приземлился</td>
+							<td class="board-col schedule">
+								<time>
+									<p class="schedule-time">05:00</p>
+									<p class="schedule-date">16.08.2015</p>
+								</time>
+							</td>
+							<td class="board-col terminal">B</td>
+							<td class="board-col aeroport">
+								<p class="aeroport-city">Тель-Авив</p> 
+								<p class="aeroport-name">Бен Гурион интерн.</p>
+							</td>
+							<td class="board-col avia">
+								<img class="avia-logo" src="avia-images/transaero.png" />
+								<span class="avia-name">Transaero </span>
+								<span class="avia-code">UN312</span>
+							</td>
+							<td class="board-col plane">
+								<span class="plane-name plane-name--full">Boeing 737-700 </span>
+								<span class="plane-name plane-name--short">B737 </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<article class="modal-article">
+				<p>Совершил посадку в 06:00</p>
+			</article>
+		</div>
+	</div></body>
+</html>

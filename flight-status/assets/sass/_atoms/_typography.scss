@@ -1,0 +1,22 @@
+$font: normal 14px/1.5em "Helvetica Neue", "Helvetica", "Arial", "Vedana", sans-serif;
+
+html {
+	font: $font;
+}
+
+a {
+	color: inherit;
+	
+	&[href^="#"] {
+		border-bottom: 1px dotted;
+	}
+	
+	p & {
+		color: royalblue;
+	}
+}
+
+hr {
+	border: none;
+	border-bottom: 1px solid whitesmoke;
+}

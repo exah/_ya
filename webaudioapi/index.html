@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Web Audio Api Player</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div class="player init">
+		<canvas class="player-visualizer"></canvas>
+		<div class="player-dropzone">
+			<p class="player-dropzone-label"> Перетяните файл сюда </p>
+		</div>
+		<ul class="player-metadata">
+			<li class="player-metadata-artist"></li> 
+			<li class="player-metadata-album"></li>
+			<li class="player-metadata-title"></li>
+		</ul>
+		<input class="player-input" type="file" accept="audio/*" />
+		<button class="player-btn--play">Play</button>
+	</div>
+
+	<script src="jdataview.js" type="text/javascript"></script>
+	<script src="player.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		player = new Player();
+		
+		dropzone = new DropZone($('.player'), $('.player-input'), function(){ 
+			var file = this.files[0];
+			
+			player.isPlaying && player.toggle();
+			
+			$('.player').classList.add('active');
+			$('.player-btn--play').onclick = startPlayer;
+			
+			player = new Player();
+			player.load(URL.createObjectURL(file), startPlayer);
+			
+			player.file_input = file;
+		});
+		
+		function startPlayer() {
+			player.toggle();
+			$('.player').classList.remove('init');
+			$('.player-btn--play').innerHTML = player.isPlaying ? 'Pause' : 'Play';
+			
+			$('.player-metadata-artist').innerHTML = player.metadata.artist;
+			$('.player-metadata-album').innerHTML = player.metadata.album;
+			$('.player-metadata-title').innerHTML = player.metadata.title;
+		}
+		
+		window.addEventListener('resize', function(){
+			player.redraw();
+		}, false)
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+%hide-on-900, .hide-on-900 {
+	@media (max-width: 900px) {
+		display: none;
+	}
+}
+
+%hide-on-800, .hide-on-800 {
+	@media (max-width: 800px) {
+		display: none;
+	}
+}
+
+%hide-on-700, .hide-on-700 {
+	@media (max-width: 700px) {
+		display: none;
+	}
+}

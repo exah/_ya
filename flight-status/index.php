@@ -83,7 +83,7 @@
 							'aeroport'=>'Кольцово',
 							'company'=> 'Победа',
 							'code'	=>	'ДР272',
-							'logo'	=> 'победа.jpg',
+							'logo'	=> 'victory.jpg',
 							'plane'	=> array('Boeing 737-700', 'B737'),
 							'info'	=> 'Вылетел в 00:13.',
 							'type'	=>	'departure'
